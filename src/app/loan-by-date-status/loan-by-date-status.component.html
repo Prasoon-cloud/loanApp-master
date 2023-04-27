@@ -1,0 +1,122 @@
+<hr>
+<h2>Loan by Date</h2>
+<div>
+    <mat-form-field appearance="outline">
+      <mat-label>Loan Date</mat-label>
+      <input type="text" matInput [formControl]="date" />
+    </mat-form-field>
+  </div>
+  <div >
+    <button
+      mat-raised-button
+      color="primary"
+      placeholder="loan app id"
+     (click)="loanByDate()"
+      
+    >
+     Search
+    </button>
+  </div>
+<div class="container">
+  <div *ngFor="let loan of loans">
+    <div>
+      <mat-card>
+        <div>Loan Id : {{ loan.bank_loan_id }}</div>
+        <div>Customer Id : {{ loan.customer_id }}</div>
+        <div>Amount : {{ loan.loan_amount }}</div>
+        <div>Tenure : {{ loan.no_of_years }}</div>
+        <div>Apply date : {{ loan.loanAppDate }}</div>
+        <div>Purpose : {{ loan.purpose }}</div>
+        <div>Type : {{ loan.type_of_loan }}</div>
+        <div>Status : {{ loan.appStatus }}</div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<hr>
+ <h2>Loan by status</h2>
+<div>
+    <mat-form-field appearance="outline">
+      <mat-label>Loan Status</mat-label>
+      <input type="text" matInput [formControl]="status" />
+    </mat-form-field>
+  </div>
+  <div >
+    <button
+      mat-raised-button
+      color="primary"
+      placeholder="loan Status"
+     (click)="loanByStatus()"
+      
+    >
+     Search
+    </button>
+  </div>
+<div class="container"> 
+  <div *ngFor="let loanss of loan1">
+    <div>
+      <mat-card>
+        <div>Loan Id : {{ loanss.bank_loan_id }}</div>
+        <div>Customer Id : {{ loanss.customer_id }}</div>
+        <div>Amount : {{ loanss.loan_amount }}</div>
+        <div>Tenure : {{ loanss.no_of_years }}</div>
+        <div>Apply date : {{ loanss.loanAppDate }}</div>
+        <div>Purpose : {{ loanss.purpose }}</div>
+        <div>Type : {{ loanss.type_of_loan }}</div>
+        <div>Status : {{ loanss.appStatus }}</div>
+      </mat-card>
+    </div>
+  </div>
+ 
+  <div style="margin-right:150px;">
+    <h2>Loan Check Acceptance</h2>
+<div>
+  <mat-form-field appearance="outline">
+    <mat-label>Loan App Id</mat-label>
+    <input type="number" matInput [formControl]="apploanId1" />
+  </mat-form-field>
+</div>
+<div >
+  <button
+    mat-raised-button
+    color="primary"
+    placeholder="loan app id"
+   (click)="checkAcceptance()"
+    
+  >
+   Check Acceptance
+  </button>
+</div>
+</div>
+<div>
+  <hr>
+    <h2>Emi Calculator</h2>
+
+<div>
+    <mat-form-field appearance="outline">
+      <mat-label>Loan app Id</mat-label>
+      <input type="number" matInput [formControl]="apploanId" />
+    </mat-form-field>
+  </div>
+<div >
+  <button
+    mat-raised-button
+    color="primary"
+    placeholder="Calculate Emi"
+   (click)="emi()"
+    
+  >
+   Calculate EMI
+  </button>
+</div>
+</div>
+<mat-card *ngIf="boolFlag">
+  <div>Loan Id : {{ emiResponse.loan_id }}</div>
+  <div>Loan Type : {{ emiResponse.loan_type }}</div>
+  <div>Interest Rate: {{ emiResponse.interest_rate }}</div>
+  <div>Total Amount : {{ emiResponse.total_amount}}</div>
+  <div>Total Interest : {{ emiResponse.total_interest}}</div>
+  <div>Monthly Amount : {{ emiResponse.monthly_amount }}</div>
+  <div>Emi Duration : {{ emiResponse.emi_duatrion }}</div>
+</mat-card>
+

@@ -1,0 +1,42 @@
+<nav class="nav">
+  <h2 routerLink="" (click)="handler()"style="padding-top: 10px;color:white">Customer Loan App</h2>
+
+  <div [ngSwitch]="menuType">
+    <ul *ngSwitchCase="'default'">
+      <li mat-button><a routerLink="banker-auth">Banker</a></li>
+      <li><a routerLink="customer-auth">Customer</a></li>
+    </ul>
+    <ul *ngSwitchCase="'customerDashboard'">
+      <li><a routerLink="customer_dashboard">My Info</a></li>
+      <li><a routerLink="loan-info">Loan Info</a></li>
+      <li><a routerLink="my-loan">My Loan</a></li>
+      <li><a routerLink="new-loan">Apply for a loan</a></li>
+      <li><a routerLink=""(click)="handler()">Log Out</a></li>
+    </ul>
+    <ul *ngSwitchCase="'bankerDashboard'">
+      <li><a routerLink="dashboard">Customer List</a></li>
+      <li><a routerLink="loan-dashboard"> Loan List</a></li>
+      <li><a routerLink="add-debt">Add debt</a></li>
+      <li><a routerLink="defaulter-list"> Defaulters List</a></li>
+      <li><a routerLink="update-payment"> update payment</a></li>
+      <!-- <li><a routerLink="loan-type"> Loan type</a></li>
+      <li><a routerLink="pull-loan"> Pull loan</a></li>
+      <li><a routerLink="loan-dateStatus"> Search Loan(Date/Status) </a></li> -->
+
+      <li>
+        <a routerLink="pull-monthly"> Pull Monthly payment </a>
+      </li>
+      <li>
+        <a [matMenuTriggerFor]="app">Loan</a>
+      </li>
+      <mat-menu #app>
+        <ng-template matMenuContent>
+          <a mat-menu-item routerLink="/loan-type">loan Type</a>
+           <a mat-menu-item routerLink="/pull-loan">pull Loans</a>
+           <a mat-menu-item routerLink="/loan-dateStatus">Search Loan(Date/Status)</a>
+        </ng-template>
+          </mat-menu>
+      <li><a routerLink=""(click)="handler()">Log Out</a></li>
+    </ul>
+  </div>
+</nav>

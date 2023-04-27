@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-title>Bankers Login</mat-card-title>
+  <mat-card-content>
+    <form (submit)="login()">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Username"
+          [formControl]="username"
+          required
+        />
+        <mat-error *ngIf="username.hasError('required')"
+          >Username is required</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Password"
+          type="password"
+          [formControl]="password"
+          required
+        />
+        <mat-error *ngIf="password.hasError('required')"
+          >Password is required</mat-error
+        >
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+      
+      >
+        Login
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

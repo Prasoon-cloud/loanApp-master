@@ -1,0 +1,75 @@
+
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  "
+>
+  <mat-card *ngIf="closePopup" style="width: 40%">
+    <h1>Add Debt</h1>
+    <form [formGroup]="debtForm" (submit)="addDebt()"class="example-form" >
+      <div>
+        <mat-form-field width="100%" class="component" appearance="outline">
+          <mat-label>loan App Id</mat-label>
+          <input matInput formControlName="loanAppId" />
+          <mat-error>Enter loan app Id</mat-error>
+        </mat-form-field>
+      </div>
+      <div style="margin-top: 10px">
+        <mat-form-field class="component" appearance="outline">
+          <mat-label>Month</mat-label>
+          <input matInput formControlName="monthNo" />
+          <mat-error>Enter a valid input</mat-error>
+        </mat-form-field>
+      </div>
+      <div style="margin-top: 10px">
+        <mat-form-field class="component" appearance="outline">
+          <mat-label>year</mat-label>
+          <input matInput formControlName="year" />
+          <mat-error>Enter a valid input</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Choose Due Date of Payment</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker1"
+            formControlName="dueDateOfPayment"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker1 color="primary"></mat-datepicker>
+          <mat-error> Enter a valid date</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Payment Recieved Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker2"
+            formControlName="paymentRecieveDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2 color="primary"></mat-datepicker>
+          <mat-error> Enter a valid date</mat-error>
+        </mat-form-field>
+      </div>
+
+  
+      
+
+      <div style="text-align: center; margin-top: 15px">
+        <button type="submit" mat-raised-button color="primary" >Add</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

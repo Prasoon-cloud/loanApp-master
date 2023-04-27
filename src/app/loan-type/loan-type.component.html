@@ -1,0 +1,86 @@
+<div>
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8"
+    style="margin: 20px auto"
+  >
+    <ng-container matColumnDef="type_of_loan">
+      <th mat-header-cell *matHeaderCellDef>Loan type</th>
+      <td mat-cell *matCellDef="let element">{{ element.type_of_loan }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="interest_rate">
+      <th mat-header-cell *matHeaderCellDef>Interest rate</th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="!element.isEditable">{{ element.interest_rate + " %" }}</div>
+        <div *ngIf="element.isEditable">
+          <mat-form-field
+            class="example-full-width"
+            appearance="outline"
+            style="padding-top: 20px"
+          >
+            <input type="text" matInput [(ngModel)]="element.interesate" />
+          </mat-form-field>
+          <span>{{ " %" }}</span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>Edit</th>
+      <td mat-cell *matCellDef="let element">
+        <div style="display: flex; justify-content: space-between">
+          <mat-icon (click)="editLoan(element)">edit</mat-icon>
+          <mat-icon *ngIf="element.isEditable" (click)="setRate(element)"
+            >done</mat-icon
+          >
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <div>
+    <div style="display: flex; justify-content: center">
+      <mat-card>
+        <div style="text-align: center">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="isClicked = !isClicked"
+          >
+            {{ !isClicked ? "Add a new type" : "Cancel" }}
+          </button>
+        </div>
+        <form [formGroup]="typeForm" style="margin: 10px" *ngIf="isClicked">
+          <div>
+            <mat-form-field width="100%" class="component" appearance="outline">
+              <mat-label>Loan type</mat-label>
+              <input matInput formControlName="type" />
+              <mat-error>Required field</mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <div>
+              <mat-form-field
+                width="100%"
+                class="component"
+                appearance="outline"
+              >
+                <mat-label>Interest rate</mat-label>
+                <input matInput formControlName="rate" />
+                <mat-error>Required field</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <button mat-raised-button color="primary" (click)="clickHandler()">
+            Add
+          </button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<h2>Loan List</h2>
+<div class="container">
+  <div *ngFor="let loan of loans">
+    <div>
+      <mat-card>
+        <div style="text-align: right">
+          <mat-icon (click)="openEditModal(loan)">done</mat-icon>
+        </div>
+        <div>Loan Id : {{ loan.bank_loan_id }}</div>
+        <div>Customer Id : {{ loan.customer_id }}</div>
+        <div>Amount : {{ loan.loan_amount }}</div>
+        <div>Tenure : {{ loan.no_of_years }}</div>
+        <div>Apply date : {{ loan.loanAppDate }}</div>
+        <div>Purpose : {{ loan.purpose }}</div>
+        <div>Type : {{ loan.type_of_loan }}</div>
+        <div>Status : {{ loan.appStatus }}</div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<hr>
+<h2>check Credit Score</h2>
+<div>
+  <mat-form-field appearance="outline">
+    <mat-label>Loan App Id</mat-label>
+    <input type="number" matInput [formControl]="apploanId" />
+  </mat-form-field>
+</div>
+<div style="text-align: center; margin-top: 15px">
+  <button
+    mat-raised-button
+    color="primary"
+   (click)="creditCheck()"
+    
+  >
+    Check Credit Score
+  </button>
+</div>
+<hr>
+<h2>Search for Loan</h2>
+<div>
+  <mat-form-field appearance="outline">
+    <mat-label>Loan App Id</mat-label>
+    <input type="number" matInput [formControl]="apploanId1" />
+  </mat-form-field>
+</div>
+<div style="text-align: center; margin-top: 15px">
+  <button
+    mat-raised-button
+    color="primary"
+   (click)="searchLoan()"
+    
+  >
+    Loan Search
+  </button>
+</div>
+ <mat-card>
+        <!-- <div>Loan Id :- {{loaan.bank_loan_id }}</div>
+        <div>Customer Id :- {{loaan.customer_id }}</div>
+        <div>Amount :- {{loaan.loan_amount }}</div>
+        <div>Tenure :- {{loaan.no_of_years }}</div>
+        <div>Apply date :- {{loaan.loanAppDate }}</div>
+        <div>Purpose :-{{loaan.purpose }}</div>
+        <div>Type :- {{loaan.type_of_loan }}</div>
+        <div>Status :- {{loaan.appStatus }}</div> -->
+        {{loaan | json}}
+      </mat-card>
+

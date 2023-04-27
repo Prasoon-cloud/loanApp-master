@@ -1,0 +1,100 @@
+<div>
+  <form [formGroup]="calender" style="display: flex; justify-content: center">
+    <div>
+      <div>
+        <mat-form-field class="component" appearance="outline">
+          <mat-label>Enter a month</mat-label>
+          <input matInput formControlName="month" />
+          <mat-error>Month should not be empty</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="component" appearance="outline">
+          <mat-label>Enter an year</mat-label>
+          <input matInput formControlName="year" />
+          <mat-error>Year should not be empty</mat-error>
+        </mat-form-field>
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        style="margin-top: 5px"
+        (click)="pullHandler()"
+      >
+        Pull
+      </button>
+    </div>
+  </form>
+</div>
+
+<table
+  *ngIf="isPulled === true"
+  mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8"
+  style="margin: 20px auto"
+>
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="paymentTrackId">
+    <th mat-header-cell *matHeaderCellDef>Payment Id</th>
+    <td mat-cell *matCellDef="let element">{{ element.paymentTrackId }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="loanAppId">
+    <th mat-header-cell *matHeaderCellDef>Loan Id</th>
+    <td mat-cell *matCellDef="let element">{{ element.loanAppId }}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="monthNo">
+    <th mat-header-cell *matHeaderCellDef>Month</th>
+    <td mat-cell *matCellDef="let element">{{ element.monthNo }}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="year">
+    <th mat-header-cell *matHeaderCellDef>Year</th>
+    <td mat-cell *matCellDef="let element">{{ element.year }}</td>
+  </ng-container>
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef>Status</th>
+    <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+  </ng-container>
+  <ng-container matColumnDef="dueDateOfPayment">
+    <th mat-header-cell *matHeaderCellDef>Payment due date</th>
+    <td mat-cell *matCellDef="let element">{{ element.dueDateOfPayment }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<hr>
+<!-- {"paymentTrackId":1,"loanAppId":"3232","monthNo":4,"year":2023,"status":"not received","dueDateOfPayment":"2023-04-15T00:00:00.000+00:00","paymentRecieveDate":null} -->
+
+<div>
+  <mat-form-field  appearance="outline">
+    <mat-label>Payment Id</mat-label>
+    <input type="text" matInput [formControl]="paymentId" />
+  </mat-form-field>
+</div>
+<button
+  mat-raised-button
+  color="primary"
+  style="margin-top: 5px"
+  (click)="paymentById()"
+>
+ Search Payment
+</button>
+<mat-card *ngIf="boolFlag">
+  <div>Payment Id : {{ paymentIdResponse.paymentTrackId }}</div>
+  <div>Loan App Id: {{ paymentIdResponse.loanAppId }}</div>
+  <div>Month No: {{ paymentIdResponse.monthNo }}</div>
+  <div>Year : {{ paymentIdResponse.year}}</div>
+  <div>Status : {{ paymentIdResponse.status}}</div>
+  <div>Due Payment Date : {{ paymentIdResponse.dueDateOfPayment }}</div>
+</mat-card>
+

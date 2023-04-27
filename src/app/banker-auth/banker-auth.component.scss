@@ -1,0 +1,34 @@
+mat-card {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  mat-form-field {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  button {
+    margin-top: 25px;
+  }
+  .mat-form-field input {
+    height: 40px;
+    width:100%;
+    transition: height ease-in-out 400ms;
+}
+ c
+.custom-button {
+    background: rgb(150, 128, 128);
+    width:100px;
+    height:30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .custom-button:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  

@@ -1,0 +1,10 @@
+table {
+  width: 30%;
+}
+:host {
+  ::ng-deep {
+    .mat-form-field-flex {
+      width: 110px !important;
+    }
+  }
+}

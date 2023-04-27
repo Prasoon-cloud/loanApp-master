@@ -1,0 +1,20 @@
+.container {
+  display: grid;
+  margin: 20px auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  max-width: 1200px;
+  margin: 30px auto;
+  gap: 20px;
+}
+::ng-deep {
+  .mat-form-field-appearance-outline .mat-form-field-flex {
+    width: 500px;
+  }
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+}
+::-webkit-scrollbar {
+  display: none !important;
+}

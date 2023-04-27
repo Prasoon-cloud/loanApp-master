@@ -1,0 +1,88 @@
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  "
+>
+  <mat-card *ngIf="closePopup" style="width: 40%">
+    <h1>Apply for a Loan</h1>
+    <form [formGroup]="loanForm" (submit)="applyLoan()"class="example-form" >
+      <div>
+        <mat-form-field width="100%" class="component" appearance="outline">
+          <mat-label>Enter Bank Loan Id</mat-label>
+          <input matInput formControlName="bank_loan_id" />
+          <mat-error>Enter bank loan id</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field width="100%" class="component" appearance="outline">
+          <mat-label>Enter Loan amount</mat-label>
+          <input matInput formControlName="amount" />
+          <mat-error>Enter an amount</mat-error>
+        </mat-form-field>
+      </div>
+      <div style="margin-top: 10px">
+        <mat-form-field class="component" appearance="outline">
+          <mat-label>Years</mat-label>
+          <input matInput formControlName="years" />
+          <mat-error>Enter a valid input</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Apply date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker2"
+            formControlName="applyDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2 color="primary"></mat-datepicker>
+          <mat-error> Enter a valid date</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div style="margin-top: 10px">
+        <mat-form-field class="component" appearance="outline">
+          <mat-label>Purpose</mat-label>
+          <mat-select formControlName="purpose">
+            <mat-option value="Education">Education</mat-option>
+            <mat-option value="Home Loan">Home Loan</mat-option>
+            <mat-option value="Vehicle Loan">Vehicle Loan</mat-option>
+          </mat-select>
+          <mat-error> Select a valid purpose from dropdown</mat-error>
+        </mat-form-field>
+      </div>
+      <div style="margin-top: 10px">
+        <mat-form-field class="component" appearance="outline">
+          <mat-label>Type of loan</mat-label>
+          <mat-select formControlName="type">
+            <mat-option value="Education">Education</mat-option>
+            <mat-option value="Home Loan">Home Loan</mat-option>
+            <mat-option value="vehicle Loan">Vehicle Loan</mat-option>
+          </mat-select>
+          <mat-error> Select a valid type from dropdown</mat-error>
+        </mat-form-field>
+      </div>
+      <div style="margin-top: 10px">
+        <mat-form-field class="component" appearance="outline">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status">
+            <mat-option value="New Loan">New Loan</mat-option>
+            <mat-option value="Old Loan">Old loan</mat-option>
+          </mat-select>
+          <mat-error> Select a valid status from dropdown</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div style="text-align: center; margin-top: 15px">
+        <button type="submit" mat-raised-button color="primary" >Apply</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

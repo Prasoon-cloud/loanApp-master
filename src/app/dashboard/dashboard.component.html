@@ -1,0 +1,51 @@
+<hr>
+<h2>Customer List</h2>
+<div class="container">
+  <div *ngFor="let customer of customers">
+    <div>
+      <mat-card>
+        <div style="text-align: right">
+          <!-- <mat-icon (click)="openEditModal(customer)">edit</mat-icon> -->
+          <button mat-raised-button color="secondary" (click)="openEditModal(customer)">Edit</button>
+        </div>
+        <div>Name : {{ customer.fist_name + customer.last_name }}</div>
+        <div>Address : {{ customer.address }}</div>
+        <div>City : {{ customer.city }}</div>
+        <div>Gender : {{ customer.gender }}</div>
+        <div>Contact : {{ customer.contact_no }}</div>
+        <div>Aadhaar : {{ customer.addhar_card }}</div>
+        <div>Email : {{ customer.email }}</div>
+        <div>Salary : {{ customer.salary }}</div>
+        <div>DOB : {{ customer.date_of_birth }}</div>
+        <div>Credit score : {{ customer.credit_score }}</div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<hr>
+<h2>Search for customer</h2>
+<div>
+  <mat-form-field appearance="outline">
+    <mat-label>Customer Id</mat-label>
+    <input type="number" matInput [formControl]="custId" />
+  </mat-form-field>
+</div>
+<div style="text-align: center; margin-top: 15px">
+  <button
+    mat-raised-button
+    color="primary"
+   (click)="searchCustomer()"
+    
+  >
+    Customer Search
+  </button>
+</div>
+ <mat-card>
+  
+        {{cust | json}}
+      </mat-card>
+
+
+
+
+

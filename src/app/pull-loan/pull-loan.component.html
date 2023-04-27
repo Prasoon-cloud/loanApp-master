@@ -1,0 +1,89 @@
+<div>
+  <div style="display: flex; justify-content: center">
+    <form [formGroup]="pulldateForm">
+      <mat-form-field color="accent" appearance="outline">
+        <mat-label>Select a date</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="pullDate" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2 color="primary"></mat-datepicker>
+        <mat-error>Enter a valid date</mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+  <div style="text-align: center; margin-top: 3px">
+    <button mat-raised-button color="primary" (click)="pullHandler()">
+      Pull
+    </button>
+  </div>
+</div>
+<table
+  *ngIf="!noData"
+  mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8"
+  style="margin: 20px auto"
+>
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="loan_app_id">
+    <th mat-header-cell *matHeaderCellDef>Loan application Id</th>
+    <td mat-cell *matCellDef="let element">{{ element.loan_app_id }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="bank_loan_id">
+    <th mat-header-cell *matHeaderCellDef>Bank loan Id</th>
+    <td mat-cell *matCellDef="let element">{{ element.bank_loan_id }}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="customer_id">
+    <th mat-header-cell *matHeaderCellDef>Customer Id</th>
+    <td mat-cell *matCellDef="let element">{{ element.customer_id }}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="loan_amount">
+    <th mat-header-cell *matHeaderCellDef>Loan amount</th>
+    <td mat-cell *matCellDef="let element">{{ element.loan_amount }}</td>
+  </ng-container>
+  <ng-container matColumnDef="no_of_years">
+    <th mat-header-cell *matHeaderCellDef>Loan tenure</th>
+    <td mat-cell *matCellDef="let element">{{ element.no_of_years }}</td>
+  </ng-container>
+  <ng-container matColumnDef="loanAppDate">
+    <th mat-header-cell *matHeaderCellDef>Loan apply date</th>
+    <td mat-cell *matCellDef="let element">{{ element.loanAppDate }}</td>
+  </ng-container>
+  <ng-container matColumnDef="purpose">
+    <th mat-header-cell *matHeaderCellDef>Purpose</th>
+    <td mat-cell *matCellDef="let element">{{ element.purpose }}</td>
+  </ng-container>
+  <ng-container matColumnDef="type_of_loan">
+    <th mat-header-cell *matHeaderCellDef>Type of loan</th>
+    <td mat-cell *matCellDef="let element">{{ element.type_of_loan }}</td>
+  </ng-container>
+  <ng-container matColumnDef="appStatus">
+    <th mat-header-cell *matHeaderCellDef>Application status</th>
+    <td mat-cell *matCellDef="let element">{{ element.appStatus }}</td>
+  </ng-container>
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef>Status</th>
+    <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<div
+  *ngIf="noData"
+  style="display: flex; justify-content: center; margin-top: 50px"
+>
+  <h1>There are no records available for this date</h1>
+</div>

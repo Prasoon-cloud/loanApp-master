@@ -1,0 +1,51 @@
+// mat-card {
+//   max-width: 400px;
+//   margin: auto;
+//   margin-top: 50px;
+//   text-align: center;
+// }
+
+// mat-form-field {
+//   width: 100%;
+//   margin-top: 5px;
+// }
+
+// button {
+//   margin-top: 25px;
+// }
+// .mat-form-field input {
+//   height: 40px;
+//   width: 100%;
+//   transition: height ease-in-out 400ms;
+// }
+
+// .custom-button {
+//   background: rgb(150, 128, 128);
+//   width: 100px;
+//   height: 30px;
+//   border-radius: 5px;
+//   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+//   transition: box-shadow 0.3s ease-in-out;
+// }
+
+// .custom-button:hover {
+//   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+// }
+.component {
+  height: 66px;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+mat-card {
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
+    0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%) !important;
+}
+::ng-deep {
+  .mat-form-field-appearance-outline .mat-form-field-flex {
+    padding: 0 0.75em 0 0.75em;
+    margin-top: -0.25em;
+    position: relative;
+    width: 304px;
+  }
+}

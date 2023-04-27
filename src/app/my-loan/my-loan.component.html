@@ -1,0 +1,84 @@
+<hr>
+<div class="loanInfo">
+    <div style="margin-right:150px;">
+        <h2>Loan Info</h2>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Loan App Id</mat-label>
+        <input type="number" matInput [formControl]="apploanId" />
+      </mat-form-field>
+    </div>
+    <div style="text-align: center; margin-top: 15px">
+      <button
+        mat-raised-button
+        color="primary"
+       (click)="fetchLoan()"
+        
+      >
+        Submit
+      </button>
+    </div>
+    <div class="container" *ngIf="checkFlag">
+            <mat-card>
+              <div style="text-align: right">
+                <mat-icon (click)="openEditModal(loan)">edit</mat-icon>
+              </div>
+              <div>Loan Id : {{ loan.bank_loan_id }}</div>
+              <div>Customer Id : {{ loan.customer_id }}</div>
+              <div>Amount : {{ loan.loan_amount }}</div>
+              <div>Tenure : {{ loan.no_of_years }}</div>
+              <div>Apply date : {{ loan.loanAppDate }}</div>
+              <div>Purpose : {{ loan.purpose }}</div>
+              <div>Type : {{ loan.type_of_loan }}</div>
+              <div>Status : {{ loan.appStatus }}</div>
+            </mat-card>
+      </div>
+    </div>
+    <div style="margin-right:150px;">
+        <h2>Loan Check Acceptance</h2>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Loan App Id</mat-label>
+        <input type="number" matInput [formControl]="apploanId1" />
+      </mat-form-field>
+    </div>
+    <div style="text-align: center; margin-top: 15px">
+      <button
+        mat-raised-button
+        color="primary"
+        placeholder="loan app id"
+       (click)="checkAcceptance()"
+        
+      >
+       Check
+      </button>
+    </div>
+    </div>
+    <div>
+        <h2>Emi Calculator</h2>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>principle</mat-label>
+        <input type="number" matInput [formControl]="principle" />
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline">
+          <mat-label>time</mat-label>
+          <input type="number" matInput [formControl]="time" />
+        </mat-form-field>
+      </div>
+    <div style="text-align: center; margin-top: 15px">
+      <button
+        mat-raised-button
+        color="primary"
+        placeholder="Calculate Emi"
+       (click)="emi()"
+        
+      >
+       Calculate EMI
+      </button>
+    </div>
+    </div>
+    
+</div>
